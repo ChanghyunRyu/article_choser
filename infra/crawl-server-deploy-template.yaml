@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crawl-server-depoly
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: crawl-server-deploy
+  template:
+    metadata:
+      labels:
+        app: crawl-server-deploy
+    spec:
+      containers:
+      - name: crawl-server-deploy
+        image: 2721ckd/crawler-server:v2
+        ports:
+        - containerPort: 8081

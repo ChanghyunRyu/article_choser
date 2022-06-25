@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: crawl-server-test-lb
+  labels:
+    app: crawl-server
+spec:
+  type: LoadBalancer
+  selector:
+    app: crawl-server
+  ports:
+  - port: 9000
+    targetPort: 8081
+    protocol: TCP
